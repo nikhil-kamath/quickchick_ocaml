@@ -1,0 +1,4 @@
+(executable
+ (public_name quickchick_ocaml)
+ (name main)
+ (libraries quickchick_ocaml))

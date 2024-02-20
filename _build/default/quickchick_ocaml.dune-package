@@ -1,0 +1,63 @@
+(lang dune 3.13)
+(name quickchick_ocaml)
+(sections (lib .) (libexec .) (bin ../../bin))
+(files
+ (lib
+  (META
+   convert.ml
+   dune-package
+   files.ml
+   opam
+   quickchick_ocaml.a
+   quickchick_ocaml.cma
+   quickchick_ocaml.cmi
+   quickchick_ocaml.cmt
+   quickchick_ocaml.cmx
+   quickchick_ocaml.cmxa
+   quickchick_ocaml.ml
+   quickchick_ocaml__.cmi
+   quickchick_ocaml__.cmt
+   quickchick_ocaml__.cmx
+   quickchick_ocaml__.ml
+   quickchick_ocaml__Convert.cmi
+   quickchick_ocaml__Convert.cmt
+   quickchick_ocaml__Convert.cmx
+   quickchick_ocaml__Files.cmi
+   quickchick_ocaml__Files.cmt
+   quickchick_ocaml__Files.cmx))
+ (libexec (quickchick_ocaml.cmxs))
+ (bin (quickchick_ocaml)))
+(library
+ (name quickchick_ocaml)
+ (kind normal)
+ (archives (byte quickchick_ocaml.cma) (native quickchick_ocaml.cmxa))
+ (plugins (byte quickchick_ocaml.cma) (native quickchick_ocaml.cmxs))
+ (native_archives quickchick_ocaml.a)
+ (requires core core_unix)
+ (main_module_name Quickchick_ocaml)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name quickchick_ocaml__)
+     (visibility public)
+     (kind alias)
+     (source
+      (path Quickchick_ocaml__)
+      (impl (path quickchick_ocaml__.ml-gen))))
+    (name Quickchick_ocaml)
+    (modules
+     (module
+      (obj_name quickchick_ocaml__Convert)
+      (visibility public)
+      (source (path Convert) (impl (path convert.ml))))
+     (module
+      (obj_name quickchick_ocaml__Files)
+      (visibility public)
+      (source (path Files) (impl (path files.ml))))
+     (module
+      (obj_name quickchick_ocaml)
+      (visibility public)
+      (source (path Quickchick_ocaml) (impl (path quickchick_ocaml.ml))))))
+   (wrapped true))))

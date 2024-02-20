@@ -1,0 +1,6 @@
+description = ""
+requires = "core core_unix"
+archive(byte) = "quickchick_ocaml.cma"
+archive(native) = "quickchick_ocaml.cmxa"
+plugin(byte) = "quickchick_ocaml.cma"
+plugin(native) = "quickchick_ocaml.cmxs"

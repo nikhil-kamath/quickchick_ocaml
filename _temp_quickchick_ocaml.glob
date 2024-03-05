@@ -1,0 +1,38 @@
+DIGEST 8ab25bac697bc2c9c0628d36be4e5876
+F_temp_quickchick_ocaml
+R62:67 Coq.ZArith.ZArith <> <> lib
+ind 102:104 <> bar
+constr 117:117 <> A
+constr 127:127 <> B
+R121:123 _temp_quickchick_ocaml <> bar:1 ind
+R132:135 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R131:131 Coq.Numbers.BinNums <> Z ind
+R136:138 _temp_quickchick_ocaml <> bar:1 ind
+scheme 102:104 <> bar_rect
+scheme 102:104 <> bar_ind
+scheme 102:104 <> bar_rec
+scheme 102:104 <> bar_sind
+ind 152:155 <> bar2
+constr 168:168 <> X
+constr 179:179 <> Y
+R172:175 _temp_quickchick_ocaml <> bar2:3 ind
+R187:190 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R183:186 _temp_quickchick_ocaml <> bar2:3 ind
+R191:194 _temp_quickchick_ocaml <> bar2:3 ind
+scheme 152:155 <> bar2_rect
+scheme 152:155 <> bar2_ind
+scheme 152:155 <> bar2_rec
+scheme 152:155 <> bar2_sind
+def 209:211 <> foo
+R224:226 _temp_quickchick_ocaml <> bar ind
+binder 214:220 <> l_value:5
+R231:234 Coq.Init.Datatypes <> bool ind
+R247:253 _temp_quickchick_ocaml <> l_value:5 var
+R264:264 _temp_quickchick_ocaml <> A constr
+R269:272 Coq.Init.Datatypes <> true constr
+R278:278 _temp_quickchick_ocaml <> B constr
+R286:290 Coq.Init.Datatypes <> false constr
+R301:304 Coq.Init.Datatypes <> true constr
+R344:353 QuickChick.QuickChick <> <> lib
+R468:470 _temp_quickchick_ocaml <> bar ind
+R568:570 _temp_quickchick_ocaml <> foo def

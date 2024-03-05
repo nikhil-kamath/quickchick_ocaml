@@ -1,34 +1,31 @@
-# Quickchick_ocaml
+# bugs
 
-Test your OCaml code via translation into Coq with the power of Coq inductives and QuickChick. 
+Welcome to the bugs found when trying to auto-quickchick OCaml code. The target OCaml file is `prop.ml`. The generated Coq code is `_temp_quickchick_ocaml.v`.
 
-Say you want to test this function, defined in `prop.ml`:
-```ocaml
-type bar =
-  | A
-  | B of int
+I've labeled a few of the lines in the Coq file to make it easier to manually go between the different bugs.
 
-let foo (l : bar) : bool =
-  match l with
-  | B 1 -> false
-  | _ -> true
-```
+#### Working Version
+- Line 1 reads `| B : nat -> bar.`
+- Line 2 reads `  | B 2 => false`
+- Line 3 (in the OCaml file) reads `  | B 2 -> false`
 
-QuickChick will find the counterexample, `B 1`. The setup for this is fairly simple:
+QuickChick works fully and finds the edge case.
 
-```ocaml
-let () =
-  set_path "<path to folder with .ml files>";
-  set_file "prop.ml";
-  add_type "Prop" "bar" ["A"; "B"];
-  set_function "Prop" "foo";
-  ()
+#### Bug 1
+This version compiles and runs, but does not find the bug.
+- Line 2 reads `  | B 50 => false`
+- Line 3 reads `  | B 50 -> false`
 
-let main () =
-  match quickchick () with
-  | Some f -> Core.Printf.printf "Found counterexample in %f seconds\n" f
-  | _ -> Core.Printf.printf "Error in Coq translation\n"
-```
+#### Bug 2
+This version does not compile, both through line-by-line stepping and via `coqc` on the terminal. My error message is in `images/bug2.png`.
 
-Currently working on a deriver to automatically generate this setup code, which can be found [here](https://github.com/nikhil-kamath/ppx_quickchick_ocaml).
+- Line 1 reads `| B : Z -> bar.`
+
+#### Bug 3
+This version does not compile, both through line-by-line stepping and via `coqc` on the terminal.
+
+- Line 1 reads `| B : int -> bar.`
+- Uncomment the imports for the `CoqOfOCaml` imports in the Coq file.
+
+Importing `int` from `CoqOfOCaml` causes the error message in `images/bug3.png`. I'm assuming we need to import `int` from somewhere else but I haven't been able to find where :(
 

@@ -1,4 +1,0 @@
-(library
- (name quickchick_ocaml)
- (public_name quickchick_ocaml)
- (libraries core core_unix))

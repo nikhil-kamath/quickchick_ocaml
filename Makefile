@@ -1,4 +1,4 @@
 .PHONY: install
 
 install:
-	opam install quickchick_ocaml .
+	opam install quickchick_ocaml . --working-dir

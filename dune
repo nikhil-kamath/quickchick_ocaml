@@ -1,4 +1,4 @@
-(ignored_subdirs (temporary))
+(dirs ("lib" "bin"))
 
 (env
  (dev

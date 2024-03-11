@@ -1,8 +1,8 @@
 open Quickchick_ocaml
 open Core
 
-let () =
-  let setup = Required.({
+let () = ()
+  (* let setup = Required.({
     extractions = [
       Ty {type_name = "tree"; package = "Impl"; constructors = ["E"; "T"]};
       Func {function_name = "prop_InsertPost"; package = "Impl"};
@@ -14,4 +14,4 @@ let () =
     target = "prop_InsertPost";
   }) in
   Quickchick_ocaml.Driver.quickchick_arg setup
-
+ *)

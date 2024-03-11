@@ -1,6 +1,7 @@
 (lang dune 3.13)
 
 (name quickchick_ocaml)
+(version 3366cc5-dirty)
 
 (generate_opam_files true)
 

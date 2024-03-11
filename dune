@@ -1,0 +1,6 @@
+(ignored_subdirs (temporary))
+
+(env
+ (dev
+  (flags
+   (:standard -w -66-32-33-39-34-37))))
